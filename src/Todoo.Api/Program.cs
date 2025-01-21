@@ -27,10 +27,10 @@ builder.Services.AddAuthentication()
             ValidateIssuerSigningKey = true,
             ValidateLifetime = true,
             
-            ValidAudience = x.Audience,
-            ValidAlgorithms = [ "ES256", "ES384", "ES512", "PS256", "PS384", "PS512" ],
+            ValidAudience = $"{x.Authority}/resources",
+            ValidAlgorithms = [ "RS256" ],
             ValidIssuer = x.Authority,
-            ValidTypes = ["at+jwt"],
+            ValidTypes = ["at+jwt"]
         };
     });
 

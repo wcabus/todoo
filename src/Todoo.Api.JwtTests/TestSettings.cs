@@ -17,7 +17,13 @@ public readonly struct TestSettings
         // Override the default test settings here
         CurrentTestSettings = DefaultTestSettings with
         {
-            TargetUrl = "/todos"
+            TargetUrl = "/todos",
+            ApiAudience = "todoos",
+            DefaultAudience = "https://localhost:5901/resources",
+            AllowedAudiences = [ "https://localhost:5901/resources" ],
+            AllowedAlgorithms = [ "RS256" ],
+            DisallowedAlgorithms = DefaultTestSettings.AllAlgorithms.Except([ "RS256" ]).ToList(),
+            DefaultSignatureAlgorithm = SecurityAlgorithms.RsaSha256,
         };
     }
 
@@ -115,6 +121,11 @@ public readonly struct TestSettings
     public string DefaultAudience { get; init; } = "api";
 
     /// <summary>
+    /// The API scope or audience of the API resource
+    /// </summary>
+    public string ApiAudience { get; init; } = "api";
+    
+    /// <summary>
     /// Collection of allowed audiences. Defaults to [ "api" ].
     /// </summary>
     public IReadOnlyCollection<string> AllowedAudiences { get; init; } = ["api"];
@@ -172,6 +183,14 @@ public readonly struct TestSettings
         SecurityAlgorithms.HmacSha384,
         SecurityAlgorithms.HmacSha512
     ];
+
+    public IReadOnlyCollection<string> AllAlgorithms { get; init; } = KnownSecurityAlgorithms
+        .Union([
+            "custom",
+            SecurityAlgorithms.None,
+            "nOnE"
+        ])
+        .ToArray();
     
     /// <summary>
     /// Collection of valid token types. Defaults to [ "at+jwt" ].

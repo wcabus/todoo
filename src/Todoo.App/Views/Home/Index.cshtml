@@ -1,0 +1,36 @@
+﻿@model IReadOnlyCollection<TodoItem>
+
+<div class="text-center">
+    <form method="post" asp-action="NewItem">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <table class="table table-borderless table-striped table-hover">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Completed?</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Description</td>
+                <td>@(item.IsCompleted ? "✅" : "🟩")</td>
+                <td><span>Created at @item.CreatedAt.ToLocalTime().ToString("F")</span></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todoo.Api", "Todoo.Api\Todo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todoo.Api.JwtTests", "Todoo.Api.JwtTests\Todoo.Api.JwtTests.csproj", "{87AFAB3C-D410-4C05-99DA-9E8B43209B50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Todoo.App", "Todoo.App\Todoo.App.csproj", "{DA1B7DDE-8539-4E43-8F71-CA336779DA51}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{87AFAB3C-D410-4C05-99DA-9E8B43209B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87AFAB3C-D410-4C05-99DA-9E8B43209B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87AFAB3C-D410-4C05-99DA-9E8B43209B50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA1B7DDE-8539-4E43-8F71-CA336779DA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA1B7DDE-8539-4E43-8F71-CA336779DA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA1B7DDE-8539-4E43-8F71-CA336779DA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA1B7DDE-8539-4E43-8F71-CA336779DA51}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

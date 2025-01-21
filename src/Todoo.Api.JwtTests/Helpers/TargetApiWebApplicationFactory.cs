@@ -79,6 +79,7 @@ public class TargetApiWebApplicationFactory : WebApplicationFactory<Program>, IS
             services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationScheme, options =>
             {
                 options.Authority = TestSettings.CurrentTestSettings.DefaultIssuer;
+                options.TokenValidationParameters.ValidAudience = TestSettings.CurrentTestSettings.DefaultAudience;
                 options.TokenValidationParameters.ValidIssuer = TestSettings.CurrentTestSettings.DefaultIssuer;
             });
         });
@@ -102,15 +103,16 @@ public class TargetApiWebApplicationFactory : WebApplicationFactory<Program>, IS
         builder.Services
             .AddIdentityServer(options =>
             {
+                options.EmitStaticAudienceClaim = true;
                 options.KeyManagement.SigningAlgorithms = TestSettings.DuendeSupportedSecurityAlgorithms
                     .Select(alg => new SigningAlgorithmOptions(alg))
                     .ToArray();
             })
             .AddInMemoryApiScopes([
-                new ApiScope(TestSettings.CurrentTestSettings.DefaultAudience)
+                new ApiScope(TestSettings.CurrentTestSettings.ApiAudience)
             ])
             .AddInMemoryApiResources([
-                new ApiResource(TestSettings.CurrentTestSettings.DefaultAudience) { Scopes = { TestSettings.CurrentTestSettings.DefaultAudience } }
+                new ApiResource(TestSettings.CurrentTestSettings.ApiAudience) { Scopes = { TestSettings.CurrentTestSettings.ApiAudience } }
 
             ])
             .AddInMemoryIdentityResources([
