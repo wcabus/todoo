@@ -1,0 +1,6 @@
+@Todoo.Api_HostAddress = http://localhost:5118
+
+GET {{Todoo.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
