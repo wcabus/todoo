@@ -28,6 +28,7 @@ builder.Services.AddAuthentication()
             ValidateLifetime = true,
             
             ValidAudience = x.Audience,
+            ValidAlgorithms = [ "ES256", "ES384", "ES512", "PS256", "PS384", "PS512" ],
             ValidIssuer = x.Authority,
             ValidTypes = ["at+jwt"],
         };
@@ -48,3 +49,5 @@ app.UseAuthorization();
 app.MapApiEndpoints();
 
 app.Run();
+
+public partial class Program {}
