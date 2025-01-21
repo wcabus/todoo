@@ -1,8 +1,5 @@
-﻿using System.Net;
-using System.Net.Http.Headers;
-
+﻿using System.Net.Http.Headers;
 using Todoo.Api.JwtTests.Helpers;
-
 using Xunit;
 
 namespace Todoo.Api.JwtTests.Tests;
@@ -12,6 +9,55 @@ namespace Todoo.Api.JwtTests.Tests;
 /// </summary>
 public class SignatureAlgorithmTests(TargetApiWebApplicationFactory factory) : JwtGuardTestBase(factory)
 {
+    [Fact]
+    public async Task When_Algorithm_Is_none_Then_Token_Is_Invalid()
+    {
+        // TODO Implement me
+    }
+    
+    [Fact]
+    public async Task When_Algorithm_Is_nOnE_Then_Token_Is_Invalid()
+    {
+        // TODO Implement me
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     [Theory(DisplayName = "When a token uses a supported signature algorithm, the API should not return a 401 Unauthorized response.")]
     [MemberData(nameof(GetAllowedAlgorithms))]
     internal async Task Accessing_AuthorizedUrl_Is_Authorized_For_Supported_Signature_Algorithms(string? signatureAlgorithm)

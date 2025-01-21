@@ -37,8 +37,6 @@ builder.Services.AddAuthentication()
 builder.Services.AddAuthorizationBuilder()
     .AddDefaultPolicy(nameof(Policies.Default), Policies.Default);
 
-
-
 var app = builder.Build();
 
 app.UseHttpsRedirection();
